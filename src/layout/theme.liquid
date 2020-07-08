@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="{{ settings.color_accent }}">
   <link rel="canonical" href="{{ canonical_url }}">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css" media="screen">
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
   {%- if settings.favicon != blank -%}
     <link rel="shortcut icon" href="{{ settings.favicon | img_url: '32x32' }}" type="image/png">
