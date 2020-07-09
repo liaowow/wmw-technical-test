@@ -7,21 +7,62 @@
 .product-card {
   $parent: &;
   color: $COLOR_TEXT_PRIMARY;
-  display: block;
-  position: relative;
-  text-decoration: none;
   width: 100%;
+  text-decoration: none;
+  align-items: center;
 
-  &__add-to-cart {
-    // background-color: $COLOR_SUPPORT_ERROR;
+  p {
+    color: #003366;
+    font-weight: $WEIGHT_BOLD;
+  }
+
+  a, a:hover {
+    text-decoration: none;
+  }
+
+  .image-sale-container {
+    position: relative;
+  }
+
+  &__sale-tag {
+    position: absolute;
     color: $COLOR_TEXT_INVERSE;
+    background-color: #003366;
+    font-weight: $WEIGHT_BOLD;
+    padding: $SPACING_XS $SPACING_L;
+    top: 2%;
+    right: 20%;
+  }
+  
+  &__add-to-cart {
+    color: $COLOR_TEXT_INVERSE;
+    background-color: #003366;
     padding: $SPACING_S $SPACING_XL;
     text-decoration: none;
   }
 
   @include mq($from: small) {
     &__add-to-cart {
-      background-color: $COLOR_PRIMARY;
+      background-color: #003366;
     }
   }
+}
+
+/** Styling for carousel **/
+/* no circle */
+.flickity-button {
+  background: transparent;
+}
+/* previous & next buttons */
+.flickity-prev-next-button {
+  width: 50px;
+  height: 50px;
+}
+/* icon color */
+.flickity-button-icon {
+  fill: #333333;
+}
+/* hide disabled button */
+.flickity-button:disabled {
+  display: none;
 }

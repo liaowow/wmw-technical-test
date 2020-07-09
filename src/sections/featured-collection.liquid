@@ -26,15 +26,31 @@
           </p>
         </div>
 
-        <div class="collection-carousel" data-flickity='{ "cellAlign": "left", "contain": true }'>
+        <div class="collection-carousel" 
+             data-flickity='{ "cellAlign": "left", "contain": true, "groupCells": "80%" }'>
           {% for product in collection.products limit: 8 %}
             {% assign current_variant = product.selected_or_first_available_variant %}
 
-            <a class="product-card" href="{{ product.url | within: collection }}">
-              <div>
-                {% if product.featured_image != blank %}
-                  {{ product.featured_image | img_url: 'large' | img_tag }}
-                {% endif %}
+            <div class="product-card">
+              <div class="image-sale-container">
+                <a href="{{ product.url | within: collection }}">
+                    {% if product.featured_image != blank %}
+                      {{ product.featured_image | img_url: 'large' | img_tag }}
+                    {% endif %}
+
+                    {% for tag in product.tags %}
+                      {% if tag == 'badge: sale' %}
+                        <div class="product-card__sale-tag">Sale</div>
+                      {% endif %}
+                    {% endfor %}
+                </a>
+              </div>
+
+                <p>{{ product.title | escape }}</p>
+
+                <span class="product-price">
+                  {% include 'product-price' %}
+                </span>
 
                 <span
                   class="product-card__add-to-cart"
@@ -44,21 +60,14 @@
                 >
                   Add to cart
                 </span>
-              </div>
-
-              <div>
-                <p>{{ product.title | escape }}</p>
-
-                <span>
-                  {% include 'product-price' %}
-                </span>
-              </div>
-            </a>
+            </div>
           {% endfor %}
-        <div class="product-card__add-to-cart">
-          View Collection
         </div>
+
+        <div class="bottom-section">
+          <span class="view-collection">View Collection</span>
         </div>
+
       </div>
     </div>
   </div>
