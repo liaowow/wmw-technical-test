@@ -36,13 +36,21 @@
 }
 
 .collection-carousel {
-  padding: $SPACING_M;
+  padding: $SPACING_S;
   width: 100%;
 
+  // desktop mode
   @media screen and ( min-width: 768px ) {
-    /* half-width cells for larger devices */
     .product-card { 
       width: 30%; 
+    }
+
+    &:hover .product-card:not(:hover) {
+      filter: grayscale(100%);
+  
+      &::after {
+        background-color: rgba(#000, 0.5);
+      }
     }
   }
 }

@@ -27,39 +27,38 @@
         </div>
 
         <div class="collection-carousel" 
-             data-flickity='{ "cellAlign": "left", "contain": true, "groupCells": "80%" }'>
+             data-flickity='{ "cellAlign": "left", "contain": true, "groupCells": true }'>
           {% for product in collection.products limit: 8 %}
             {% assign current_variant = product.selected_or_first_available_variant %}
 
             <div class="product-card">
               <div class="image-sale-container">
                 <a href="{{ product.url | within: collection }}">
-                    {% if product.featured_image != blank %}
-                      {{ product.featured_image | img_url: 'large' | img_tag }}
-                    {% endif %}
+                  {% if product.featured_image != blank %}
+                    {{ product.featured_image | img_url: 'large' | img_tag }}
+                  {% endif %}
 
-                    {% for tag in product.tags %}
-                      {% if tag == 'badge: sale' %}
-                        <div class="product-card__sale-tag">Sale</div>
-                      {% endif %}
-                    {% endfor %}
+                  {% for tag in product.tags %}
+                    {% if tag == 'badge: sale' %}
+                      <div class="product-card__sale-tag">Sale</div>
+                    {% endif %}
+                  {% endfor %}
+                  <span
+                    class="product-card__add-to-cart"
+                    data-quantity="1"
+                    data-variant-id="{{ current_variant.id }}"
+                    js-ajax-cart="addToCart"
+                  >
+                    Add to cart
+                  </span>
                 </a>
               </div>
 
-                <p>{{ product.title | escape }}</p>
+              <p>{{ product.title | escape }}</p>
 
-                <span class="product-price">
-                  {% include 'product-price' %}
-                </span>
-
-                <span
-                  class="product-card__add-to-cart"
-                  data-quantity="1"
-                  data-variant-id="{{ current_variant.id }}"
-                  js-ajax-cart="addToCart"
-                >
-                  Add to cart
-                </span>
+              <span class="product-price">
+                {% include 'product-price' %}
+              </span>
             </div>
           {% endfor %}
         </div>
