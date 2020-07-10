@@ -48,7 +48,6 @@
                     class="product-card__add-to-cart"
                     data-quantity="1"
                     data-variant-id="{{ current_variant.id }}"
-                    id="{{ current_variant.id }}"
                     js-ajax-cart="addToCart"
                   >
                     Add to cart
@@ -72,18 +71,6 @@
     </div>
   </div>
 </section>
-
-<script>
-  const currentItem = document.querySelector('.product-card__add-to-cart');
-  currentItem.addEventListener('click', (e) => {
-    window.console.log(e.target.id)
-    fetch('/cart.json')
-      .then(r => r.json())
-      .then(data => window.console.log(data.item_count))
-  })
-
-
-</script>
 
 {% schema %}
   {
