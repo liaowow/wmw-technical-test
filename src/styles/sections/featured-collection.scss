@@ -13,14 +13,14 @@
   padding: $SPACING_L;
 
   h2 {
-    color: #003366;
+    color: rgb(0, 51, 102);
     font-family: $FONT_HEADING;
     font-size: 36px;
 
   }
   
   p {
-    color: #9B9B9B;
+    color: rgb(155, 155, 155);
     font-family: $FONT_BODY;
     font-weight: $WEIGHT_LIGHT;
     line-height: $LINE_HEIGHT_BODY;
@@ -56,7 +56,7 @@
 }
 
 .product-price {
-  color: #9B9B9B;
+  color: rgb(155, 155, 155);
   font-weight: $WEIGHT_LIGHT;
 } 
 
@@ -69,7 +69,7 @@
 .view-collection {
   color: $COLOR_TEXT_INVERSE;
   font-weight: $WEIGHT_BOLD;
-  background-color: #003366;
+  background-color: rgb(0, 51, 102);
   padding: $SPACING_L $SPACING_XL;
   text-decoration: none;
 }

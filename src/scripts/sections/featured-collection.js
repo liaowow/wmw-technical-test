@@ -22,4 +22,25 @@ register('featured-collection', {
   publicMethod() {
     window.console.log('Initialising featured collection section');
   },
+
+  // cartItemClicked() {
+  //   const currentItem = document.querySelector('.product-card__add-to-cart');
+  //   currentItem.addEventListener('click', () => window.console.log('clicked!'));
+  // },
+
+  // addToCart(id) {
+
+    // const config = {
+    //   method: 'POST',
+    //   headers: {
+    //     'content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify(id),
+    // };
+
+    // fetch('/cart', config)
+    //   .then(res => res.json())
+    //   .then(data => window.console.log(data))
+    //   .catch(err => window.console.log(`Oops, here's the error: ${err}`));
+  // },
 });
