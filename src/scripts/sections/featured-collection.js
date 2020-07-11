@@ -24,7 +24,6 @@ register('featured-collection', {
   },
 
   onLoad() {
-
     const cartBtns = document.querySelectorAll('.product-card__add-to-cart');
     cartBtns.forEach((btn) => btn.addEventListener('click', (event) => {
       event.preventDefault();
@@ -56,9 +55,9 @@ register('featured-collection', {
       const cartItemCount = document.querySelector('.site-header__item-count')
 
       window.fetch('./cart.js')
-              .then(r => r.json())
-              .then(data => cartItemCount.innerHTML = `(${data.item_count})`)
-              .catch(err => console.error(err))
+        .then(r => r.json())
+        .then(data => cartItemCount.innerHTML = `(${data.item_count})`)
+        .catch(err => console.error(err))
       
     }
   },
